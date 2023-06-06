@@ -1,3 +1,26 @@
+import React from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+const AppRoutes = () => {
+  return (
+    <div>
+        <BrowserRouter>
+        <Routes>
+            
+        </Routes>
+        </BrowserRouter>
+// //         
+    </div>
+  )
+}
+
+export default AppRoutes
+
+
+
+
+
+
 // import React from "react";
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
 
