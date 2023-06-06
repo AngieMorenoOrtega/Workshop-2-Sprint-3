@@ -1,4 +1,4 @@
-// import React, {createContext, useState} from 'react';
+ import React, {createContext, useState} from 'react';
 
 
 // export const CartContext = createContext();
@@ -24,3 +24,31 @@
 //     </CartContext.Provider>
 //   )
 // }
+const PizzaContext = createContext();
+
+// Componente Proveedor del contexto
+const PizzaProvider = ({ children }) => {
+  // Aquí puedes inicializar y manejar los datos de las pizzas
+  const pizzas = [
+    {
+      id: 1,
+      nombre: "Pizza Margarita",
+      precio: 8.99,
+      reviews: 5,
+      descripcion: "Deliciosa pizza clásica con tomate, mozzarella y albahaca",
+      imagen: "margarita.jpg"
+    },
+    // ... otras pizzas ...
+  ];
+
+  return (
+    <PizzaContext.Provider value={pizzas}>
+      {children}
+    </PizzaContext.Provider>
+  );
+};
+
+// Hook para acceder al contexto de las pizzas
+const usePizzaContext = () => useContext(PizzaContext);
+
+export { PizzaProvider, usePizzaContext };
