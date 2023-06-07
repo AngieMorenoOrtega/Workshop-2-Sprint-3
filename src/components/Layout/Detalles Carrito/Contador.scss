@@ -1,0 +1,17 @@
+@import "../../../globalStyle/globalStyle.scss";
+.contador{
+    display: flex;
+flex-direction: row;
+height: 100px;
+justify-content: space-evenly;
+
+    button{
+        background-color: $background-color;
+        width:30px;
+        height: 30px;
+    }
+
+}
+#botoneliminar{
+    color:white
+}
