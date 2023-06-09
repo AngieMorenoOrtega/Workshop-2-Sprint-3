@@ -1,17 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from '../components/Home/Home';
+import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
+// import Home from '../components/Home/Home';
 import DetalleDePizza from "../components/DetalleDePizza/DetalleDePizza";
+import InicioSesion from '../components/InicioSesion/InicioSesion';
+
 
 const AppRoutes = () => {
 
   return (
-    <Router>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/pizza/:id" component={DetalleDePizza} />
-    </Switch>
-  </Router>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<InicioSesion />} />
+      {/* <Route path="inicio_Sesion" element={<InicioSesion />} /> */}
+      <Route path="pizza:id" elemet={<DetalleDePizza />} />
+    </Routes>
+  </BrowserRouter>
   );
   }
 
