@@ -6,12 +6,15 @@ import DetalleDePizza from "../components/DetalleDePizza/DetalleDePizza"
 import Layout from "../components/Layout/Layout"
 import FormularioDePago from "../components/FormularioDePago/FormularioDePago"
 
+import InicioSesion from '../components/InicioSesion/InicioSesion';
+
+
 const AppRoutes = () => {
   return (
     <Router>
       <PizzaProvider>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<InicioSesion/>} />
           <Route path="/pizza" element={<Layout><DetalleDePizza /></Layout>} />
           <Route path="/carrito" element={<FormularioDePago/>} />
           
