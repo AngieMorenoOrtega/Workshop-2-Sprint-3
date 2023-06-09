@@ -1,8 +1,10 @@
+@import "../../globalStyle/globalStyle.scss";
 .Layout{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height:546px;
+    height: 678px;
     width:374px;
+    background-color: $background-color;
 
 }

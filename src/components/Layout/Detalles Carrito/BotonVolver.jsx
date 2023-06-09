@@ -1,8 +1,13 @@
+
 import React from 'react'
-import "./BotonVolver"
+import "./BotonVolver.scss"
+
 const BotonVolver = () => {
   return (
-    <div className='Botonvolver'>BotonVolver</div>
+    <div className='Botonvolver'>
+      <p>&lt;
+        </p><p>Todas las Pizzas
+      </p></div>
   )
 }
 
