@@ -1,14 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import AppRoutes from '../src/AppRoutes/AppRoutes';
-import DetalleDePizza from './components/DetalleDePizza/DetalleDePizza';
-import Layout from './components/Layout/Layout';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+
+ReactDOM.render(
   <React.StrictMode>
-<Layout></Layout>
-  </React.StrictMode>
+  <AppRoutes></AppRoutes>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
-
 
