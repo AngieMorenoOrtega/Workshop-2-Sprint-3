@@ -1,0 +1,24 @@
+@import "../../Styles/mixin.scss";
+.button{
+    button{
+        @include button;
+        width: 350px;
+        
+        &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+    }
+}
+.contenedor{
+    background-color: #e1bfd7;
+}
+.form-error {
+    color: red;
+    margin-top: 5px;
+  }
+  
+
+  
+ 
+  

@@ -1,90 +1,9 @@
-import React, { useState } from "react";
-import {  useNavigate } from "react-router-dom";
-
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useForm } from 'react-hook-form';
+import "./FormularioDePago.scss";
 
 const FormularioDePago = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    creditCardNumber: "",
-    expirationDate: "",
-    cvv: "",
-    address: "",
-  });
-
-  const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validateForm(formData);
-    setErrors(validationErrors);
-    if (Object.keys(validationErrors).length === 0) {
-      // Realizar el envío del formulario o cualquier otra acción
-      console.log(formData);
-    }
-  };
-
-  const validateForm = (data) => {
-    const errors = {};
-
-    // Validar nombre completo
-    if (!data.fullName) {
-      errors.fullName = "El nombre completo es obligatorio";
-    }
-
-    // Validar número de tarjeta de crédito
-    if (!data.creditCardNumber) {
-      errors.creditCardNumber = "El número de tarjeta es obligatorio";
-    } else if (!isValidCreditCardNumber(data.creditCardNumber)) {
-      errors.creditCardNumber = "El número de tarjeta es inválido";
-    }
-
-    // Validar fecha de vencimiento
-    if (!data.expirationDate) {
-      errors.expirationDate = "La fecha de vencimiento es obligatoria";
-    } else if (!isValidExpirationDate(data.expirationDate)) {
-      errors.expirationDate = "La fecha de vencimiento es inválida";
-    }
-
-    // Validar CVV
-    if (!data.cvv) {
-      errors.cvv = "El CVV es obligatorio";
-    } else if (!isValidCVV(data.cvv)) {
-      errors.cvv = "El CVV es inválido";
-    }
-
-    // Validar dirección
-    if (!data.address) {
-      errors.address = "La dirección es obligatoria";
-    }
-
-    return errors;
-  };
-
-  const isValidCreditCardNumber = (creditCardNumber) => {
-    // Lógica de validación del número de tarjeta de crédito
-    // Implementa tu propia lógica de validación aquí
-    return creditCardNumber.length === 16;
-  };
-
-  const isValidExpirationDate = (expirationDate) => {
-    // Lógica de validación de la fecha de vencimiento
-    // Implementa tu propia lógica de validación aquí
-    return expirationDate.length === 4;
-  };
-
-  const isValidCVV = (cvv) => {
-    // Lógica de validación del CVV
-    // Implementa tu propia lógica de validación aquí
-    return cvv.length === 3;
-  };
   const navigate = useNavigate();
 
   const handleConfirmarPago = () => {
@@ -93,65 +12,74 @@ const FormularioDePago = () => {
     // Navegar al usuario a la página de pedido exitoso
     navigate("/pedido-exitoso");
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    // Lógica para manejar los datos del formulario
+    console.log(data);
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Nombre completo:</label>
-        <input
-          type="text"
-          name="fullName"
-          value={formData.fullName}
-          onChange={handleChange}
-        />
-        {errors.fullName && <span>{errors.fullName}</span>}
-      </div>
+    <div className="contenedor">
+      <button id="todas">&lt;&nbsp;&nbsp;Carrito de Compras</button>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label>Nombre completo</label>
+          <input
+            placeholder="Ingresa tu Nombre"
+            type="text"
+            {...register("fullName", { required: 'El nombre completo es obligatorio' })}
+          />
+          {errors.fullName && <span className="form-error">{errors.fullName.message}</span>}
+        </div>
 
-      <div>
-        <label>Número de tarjeta de crédito:</label>
-        <input
-          type="text"
-          name="creditCardNumber"
-          value={formData.creditCardNumber}
-          onChange={handleChange}
-        />
-        {errors.creditCardNumber && <span>{errors.creditCardNumber}</span>}
-      </div>
+        <div>
+          <label>Número de tarjeta de crédito</label>
+          <input
+            placeholder="1234 1234 1234 1234"
+            type="text"
+            {...register("creditCardNumber", { required: 'El número de tarjeta es obligatorio' })}
+          />
+          {errors.creditCardNumber && <span className="form-error">{errors.creditCardNumber.message}</span>}
+        </div>
 
-      <div>
-        <label>Fecha de vencimiento:</label>
-        <input
-          type="text"
-          name="expirationDate"
-          value={formData.expirationDate}
-          onChange={handleChange}
-        />
-        {errors.expirationDate && <span>{errors.expirationDate}</span>}
-      </div>
+        <div>
+          <label>Fecha de vencimiento</label>
+          <input
+            placeholder="MM/YY"
+            type="text"
+            {...register("expirationDate", { required: 'La fecha de vencimiento es obligatoria' })}
+          />
+          {errors.expirationDate && <span className="form-error">{errors.expirationDate.message}</span>}
+        </div>
 
-      <div>
-        <label>CVV:</label>
-        <input
-          type="text"
-          name="cvv"
-          value={formData.cvv}
-          onChange={handleChange}
-        />
-        {errors.cvv && <span>{errors.cvv}</span>}
-      </div>
+        <div>
+          <label>CVV</label>
+          <input type="text" {...register("cvv", { required: 'El CVV es obligatorio' })} />
+          {errors.cvv && <span className="form-error">{errors.cvv.message}</span>}
+        </div>
 
-      <div>
-        <label>Dirección:</label>
-        <input
-          type="text"
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
-        />
-        {errors.address && <span>{errors.address}</span>}
-      </div>
-
-      <button type="submit" onClick={handleConfirmarPago}>Pagar ahora</button>
-    </form>
+        <div>
+          <label>Dirección</label>
+          <input
+            placeholder="Av.Morelos #123"
+            type="text"
+            {...register("address", { required: 'La dirección es obligatoria' })}
+          />
+          {errors.address && <span className="form-error">{errors.address.message}</span>}
+        </div>
+        <div className="button">
+          <button type="submit" onClick={handleConfirmarPago} disabled={Object.keys(errors).length !== 0}>
+            Pagar ahora
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

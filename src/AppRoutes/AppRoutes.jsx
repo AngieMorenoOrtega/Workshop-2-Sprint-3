@@ -7,6 +7,7 @@ import Layout from "../components/Layout/Layout"
 import FormularioDePago from "../components/FormularioDePago/FormularioDePago"
 import InicioSesion from '../components/InicioSesion/InicioSesion';
 import PagoExitoso from "../components/PagoExitoso/PagoExitoso";
+import { CarritoProvider } from "../components/Carrito/Carrito";
 
 const AppRoutes = () => {
   return (
@@ -14,10 +15,12 @@ const AppRoutes = () => {
       <PizzaProvider>
         <Routes>
           <Route path="/home" element={<InicioSesion/>} />
+          <Route element={<CarritoProvider/>}>
           <Route element={<Layout/>}>
             <Route path="/pizza" element={<DetalleDePizza />}/>
           </Route>
           <Route path="/carrito" element={<FormularioDePago/>} />
+          </Route>
           <Route path="/pedido-exitoso" element={<PagoExitoso/>}/>
           <Route path="/formulario-pago" element={<FormularioDePago/>}/>
         </Routes>

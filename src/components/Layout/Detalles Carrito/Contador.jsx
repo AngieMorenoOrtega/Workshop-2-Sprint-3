@@ -1,52 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import "./Contador.scss"
 import { useNavigate } from 'react-router-dom';
+import { CarritoContext } from '../../Carrito/Carrito';
 
 const Contador = () => {
+  const { cantidadPizzas, actualizarCantidadPizzas } = useContext(CarritoContext);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const handlePagarClick = () => {
+    localStorage.setItem('cantidadPizzas', cantidadPizzas);
+    irAlCarrito();
+  };
 
-    const handlePagarClick = () => {
-        // Lógica para realizar el pago
-        irAlCarrito();
-    };
+  const irAlCarrito = () => {
+    navigate('/carrito');
+  };
 
-    const irAlCarrito = () => {
-        // Realiza alguna acción con la información del contador antes de redirigir
-        navigate('/carrito');
-    };
+  const incrementar = () => {
+    actualizarCantidadPizzas(cantidadPizzas + 1);
+  };
 
-    const [counter, setCounter] = useState(0);
+  const decrementar = () => {
+    if (cantidadPizzas > 0) {
+      actualizarCantidadPizzas(cantidadPizzas - 1);
+    }
+  };
 
-    const incrementar = () => {
-        setCounter(counter + 1);
-    };
+  const eliminarContenido = () => {
+    actualizarCantidadPizzas(0);
+  };
 
-    const decrementar = () => {
-        setCounter(counter - 1);
-    };
+  return (
+    <div className=''>
+      <div className='contador'>
+        <button onClick={decrementar}>-</button>
+        <p> {cantidadPizzas}</p>
+        <button onClick={incrementar}>+</button>
 
-    const eliminarContenido = () => {
-        setCounter(0);
-    };
+        <button id="botoneliminar" onClick={eliminarContenido}><FaTrash /></button>
 
-
-    return (
-        <div className=''>
-            <div className='contador'>
-            <button onClick={decrementar}>-</button>
-            <p> {counter}</p>
-            <button onClick={incrementar}>+</button>
-
-            <button id="botoneliminar" onClick={eliminarContenido}><FaTrash /></button>
-
-            <button onClick={handlePagarClick}>Pagar</button>
-
-            </div>
-            
-        </div>
-    );
+        <button onClick={handlePagarClick}>Pagar</button>
+      </div>
+    </div>
+  );
 };
 
 export default Contador;
