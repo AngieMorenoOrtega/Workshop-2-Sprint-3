@@ -20,9 +20,6 @@ const InicioSesion = () => {
     <div className='Imagen_fondo'>
 
       <main className='main'/>
-        <div>
-          <img src={Imagen_fondo} alt="Imagen_fondo" />
-        </div>
         {/* </main> */}
         <nav className='navBar'>
           <section>

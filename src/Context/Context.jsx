@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { getPizzas } from '../Services/getpizzas';
-import AppRoutes from '../AppRoutes/AppRoutes';
 
 const PizzaContext = createContext();
 const PizzaProvider = ({ children }) => {
@@ -22,8 +21,7 @@ const PizzaProvider = ({ children }) => {
 
   return (
     <PizzaContext.Provider value={pizzas}>
-      {children}
-      <AppRoutes/>
+      {children}  
     </PizzaContext.Provider>
   );
 };

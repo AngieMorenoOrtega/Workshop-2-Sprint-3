@@ -5,12 +5,14 @@ import Contador from "./Detalles Carrito/Contador";
 import BotonVolver from "./Detalles Carrito/BotonVolver";
 const Layout = () => {
   return (
-    <>
+    <>   
+       
        <div className="Layout">
-        <BotonVolver></BotonVolver>
-       <Contador></Contador>
+          <BotonVolver></BotonVolver>
+          <Contador></Contador>
+          <Outlet />
        </div>
-      <Outlet />
+      
     </>
   );
 };
