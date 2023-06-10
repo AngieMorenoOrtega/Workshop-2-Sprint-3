@@ -6,17 +6,20 @@ import DetalleDePizza from "../components/DetalleDePizza/DetalleDePizza"
 import Layout from "../components/Layout/Layout"
 import FormularioDePago from "../components/FormularioDePago/FormularioDePago"
 import InicioSesion from '../components/InicioSesion/InicioSesion';
+import PagoExitoso from "../components/PagoExitoso/PagoExitoso";
 
 const AppRoutes = () => {
   return (
     < BrowserRouter>
       <PizzaProvider>
         <Routes>
-          <Route path="/" element={<InicioSesion/>} />
+          <Route path="/home" element={<InicioSesion/>} />
           <Route element={<Layout/>}>
             <Route path="/pizza" element={<DetalleDePizza />}/>
           </Route>
           <Route path="/carrito" element={<FormularioDePago/>} />
+          <Route path="/pedido-exitoso" element={<PagoExitoso/>}/>
+          <Route path="/formulario-pago" element={<FormularioDePago/>}/>
         </Routes>
       </PizzaProvider>
     </BrowserRouter>

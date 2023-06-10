@@ -5,8 +5,8 @@ import "./BotonVolver.scss"
 const BotonVolver = () => {
   return (
     <div className='Botonvolver'>
-      <p>&lt;</p>
-      <p id="todas">Todas las Pizzas</p></div>
+   
+      <button id="todas">&lt;&nbsp;&nbsp;Todas las Pizzas</button></div>
   )
 }
 

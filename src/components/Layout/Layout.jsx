@@ -8,11 +8,12 @@ const Layout = () => {
     <>   
        
        <div className="Layout">
-          <BotonVolver></BotonVolver>
+          <BotonVolver></BotonVolver> 
+           <Outlet />
           <Contador></Contador>
-          <Outlet />
+         
        </div>
-      
+     
     </>
   );
 };

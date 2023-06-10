@@ -33,7 +33,8 @@ const Contador = () => {
 
 
     return (
-        <div className='contador'>
+        <div className=''>
+            <div className='contador'>
             <button onClick={decrementar}>-</button>
             <p> {counter}</p>
             <button onClick={incrementar}>+</button>
@@ -42,6 +43,8 @@ const Contador = () => {
 
             <button onClick={handlePagarClick}>Pagar</button>
 
+            </div>
+            
         </div>
     );
 };
