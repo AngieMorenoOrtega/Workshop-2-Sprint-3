@@ -14,7 +14,7 @@ const Contador = () => {
   };
 
   const irAlCarrito = () => {
-    navigate('/carrito');
+    navigate('/formulario-pago');
   };
 
   const incrementar = () => {

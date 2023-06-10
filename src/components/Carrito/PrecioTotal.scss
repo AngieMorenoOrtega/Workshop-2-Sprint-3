@@ -1,0 +1,45 @@
+@import"../../globalStyle/globalStyle.scss";
+.precio {
+    margin-top:84px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    width: 438px;
+font-family: $font;
+    &_container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+
+        p {
+            color: rgb(53, 52, 52);
+            padding-top:5px;
+            font-size: larger;
+        }
+    }
+
+    &_containerparrafo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 47px;
+
+        p {
+            font-weight: bolder;
+            padding-top:38px;
+            font-size: larger;
+         
+        }
+    } figure{
+           width: 78px;
+        height: 98px;
+         padding: 9px;
+        }
+       
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 7px; 
+        }
+}
+    

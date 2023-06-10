@@ -1,8 +1,11 @@
 @import "../../Styles/mixin.scss";
+@import "../../globalStyle/globalStyle.scss";
 .button{
     button{
         @include button;
-        width: 350px;
+        width: 441px;
+        padding: 20px;
+     
         
         &[disabled] {
     opacity: 0.5;
@@ -11,13 +14,80 @@
     }
 }
 .contenedor{
-    background-color: #e1bfd7;
+    background-color: #e1bfd7; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:11px;
+    padding: 15px;;
+    &_label{
+       
+    gap: 20px;  
+    }
+ 
+    &_precio{
+        margin-top: 100px;
+    }
+  
+}
+#labels{
+     display: flex;
+     gap:10px;
+ 
+     label{
+        flex: 1;
+     }
+     input{
+        width:215px;
+        height: 40px;
+     }
+ 
 }
 .form-error {
     color: red;
     margin-top: 5px;
   }
+ .form{
+    margin-top: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   gap:20px;
+    p{
+        margin-bottom: 11px;
+        font-weight: bolder;
+        font-size: larger;
+    }
+    label{
+       font-weight: bold;
+        color: rgb(53, 52, 52);
+        padding-bottom: 5px;
+        font-size: larger;
+    }
+    input{
+        padding: 22px;
+        width: 441px;
+    }
+    &_div{
+        display: flex;
+        flex-direction: column;
+    }
+ } 
+#todas{
+   padding-left: 10px;
+    position: absolute;
   
+   top:39px;
+    z-index: 1;
+    background-color: #e1bfd7; 
+    border: none;
+    width: max-content;
+    font-family:$font;
+    font-size: x-large;
+     transition: 1s;
+ cursor: pointer;
+ font-weight: bold;
+}
 
   
  
