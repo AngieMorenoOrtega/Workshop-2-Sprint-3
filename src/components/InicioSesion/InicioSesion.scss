@@ -1,25 +1,74 @@
- 
-// .main {
-//     position: relative;
-//     background-color: black;
-//     padding: 90%;
-//     display: flex;
 
-//     }
+
 
 .Imagen_fondo {
-    position: absolute;
-    margin-left: 10px;
-    top: 950px;
-    height: auto; 
-    width: ;   
+    
+    width: 100%;
+    height: 100vh; /* Establece la altura al 100% del viewport */
+    background-image: url('../../Assets/Imagen_fondo.jpg');
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: scroll;
+    background-color: rgba(158, 155, 155, 0.5); 
+   
+     
 }
-// .navBar.logo {
-//     position: absolute;
-//     top: -150px;
-//     background-color: ;
 
-// }
-.navBar__figure{
-    background-color: aqua;
+.main{
+    // position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(63, 62, 62, 0.6); /* Ajusta el valor alpha para cambiar la opacidad (0.0 a 1.0) */
 }
+.navBar {
+  .navBar__figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      
+      width: 100px;
+      height: 100px;
+      color: aliceblue;
+      filter: invert(100%);
+      margin-top: 6rem;
+      margin-bottom: 5%;
+      
+// Aquí puedes agregar estilos al logo
+    }
+  }
+}
+.titulo{
+  
+  font-family:fantasy;
+  letter-spacing: 1px;
+  color: white;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:10%;
+    // font-weight: 1900; 
+    font-size:xx-small;
+}
+.inicio_de_sesion{
+  color: white;
+  text-align:center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: large;
+  
+}
+.Subtitulo{
+  padding: 10px 35px 20px;
+  color: white;
+  text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  opacity: 40%;  
+}
+
+
+
+
+
