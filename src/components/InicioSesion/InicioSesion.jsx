@@ -2,14 +2,12 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 // import { NavLink } from "react-router-dom";
 import logo from "./../../Assets/logo.png";
-import Imagen_fondo from "./../../Assets/Imagen_fondo.jpg";
+// import Imagen_fondo from "./../../Assets/Imagen_fondo.jpg";
 import './InicioSesion.scss';
-
 
 
 const InicioSesion = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-
 
   const onSubmit = (data) => {
     // Aquí puedes realizar la lógica de inicio de sesión
@@ -19,8 +17,9 @@ const InicioSesion = () => {
   return (
     <div className='Imagen_fondo'>
 
-      <main className='main'/>
-        {/* </main> */}
+      <main className='main'>
+        
+       
         <nav className='navBar'>
           <section>
             <figure className="navBar__figure">
@@ -34,9 +33,10 @@ const InicioSesion = () => {
         </div>
         <div className='inicio_de_sesion'>
           <h2>Inicia sesion en tu cuenta</h2>
-          <span>Disfruta de la mejor pizza creada para las personas amantes del codigo.</span>
         </div>
-
+        <div className='Subtitulo'>
+          <h4>Disfruta de la mejor pizza creada para las personas amantes del codigo.</h4>
+        </div>
         <div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
@@ -70,7 +70,7 @@ const InicioSesion = () => {
             <button type="submit">Registrate aqui</button>
           </form>
         </div>
-      
+      </main>
     </div>
   );
 };
