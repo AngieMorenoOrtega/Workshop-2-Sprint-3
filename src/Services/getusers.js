@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_FAKE = "https://believed-bristle-mask.glitch.me/";
-const endpointPizza = "pizzas";
+const endpointPizza = "usuarios";
 
 
 export const getPizzas = async () => {
