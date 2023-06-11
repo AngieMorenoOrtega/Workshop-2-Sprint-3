@@ -6,10 +6,8 @@ import logo from "./../../Assets/logo.png";
 import './InicioSesion.scss';
 
 
-
 const InicioSesion = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-
 
   const onSubmit = (data) => {
     // Aquí puedes realizar la lógica de inicio de sesión
