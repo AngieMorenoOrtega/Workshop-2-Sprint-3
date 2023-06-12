@@ -7,7 +7,6 @@ const endpointPizza = "pizzas";
 export const getPizzas = async () => {
   try {
     const { data } = await axios.get(`${API_FAKE}${endpointPizza}`);
-    console.log(data);
     return data;
     
   } catch (error) {
