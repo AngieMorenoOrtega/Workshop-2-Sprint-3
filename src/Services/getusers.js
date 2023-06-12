@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const API_FAKE = "https://believed-bristle-mask.glitch.me/";
+const API_Usuarios = "https://believed-bristle-mask.glitch.me/usuarios";
 const endpointPizza = "usuarios";
 
 
-export const getPizzas = async () => {
+export const getUsuarios = async () => {
   try {
-    const { data } = await axios.get(`${API_FAKE}${endpointPizza}`);
+    const { data } = await axios.get(`${API_Usuarios}`);
     console.log(data);
     return data;
     
