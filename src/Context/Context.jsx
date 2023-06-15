@@ -4,6 +4,7 @@ import { getPizzas } from '../Services/getpizzas';
 const PizzaContext = createContext();
 const PizzaProvider = ({ children }) => {
   const [pizzas, setPizzas] = useState([]);
+  const [selectedPizza, setSelectedPizza] = useState(null); // State for the selected pizza
 
   useEffect(() => {
     const fetchPizzas = async () => {
@@ -20,10 +21,11 @@ const PizzaProvider = ({ children }) => {
   }, []);
 
   return (
-    <PizzaContext.Provider value={pizzas}>
+    <PizzaContext.Provider value={{ pizzas, selectedPizza, setSelectedPizza }}>
       {children}  
     </PizzaContext.Provider>
   );
 };
 
 export { PizzaContext, PizzaProvider };
+

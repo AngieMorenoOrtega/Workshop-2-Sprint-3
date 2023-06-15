@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { PizzaProvider } from '../Context/Context';
 import DetalleDePizza from "../components/DetalleDePizza/DetalleDePizza"
@@ -7,43 +7,36 @@ import FormularioDePago from "../components/FormularioDePago/FormularioDePago"
 import InicioSesion from '../components/InicioSesion/InicioSesion';
 import PagoExitoso from "../components/PagoExitoso/PagoExitoso";
 import { CarritoProvider } from "../components/Carrito/Carrito";
-
+import CardsPizzas from "../components/CardsPizzas/CardsPizzas";
+import { AuthProvider } from '../Context/UserContext';
+import BarraDeNavegacion from '../components/Layout/BarraDeNavegacion/BarraDeNavegacion';
+import Busqueda from '../components/Busqueda/Busqueda';
+import PrecioTotal from '../components/Carrito/PrecioTotal';
 const AppRoutes = () => {
   return (
-    <BrowserRouter>
-      <PizzaProvider>
-        <CarritoProvider>
-          <Routes>
-            <Route path="/" element={<InicioSesion />} />
-            <Route element={<Layout />}>
-              <Route path="/pizza" element={<DetalleDePizza />} />
-            </Route>
-            <Route path="/pedido-exitoso" element={<PagoExitoso />} />
-            <Route path="/formulario-pago" element={<FormularioDePago />} />
-          </Routes>
-        </CarritoProvider>
-      </PizzaProvider>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <PizzaProvider>
+          <CarritoProvider>
+            <Routes>
+              <Route path="/" element={<InicioSesion />} />
+              <Route element={<PrecioTotal/>}></Route>
+              <Route element={<Layout />}>
+                <Route path="/pizza/:id" element={<DetalleDePizza />} />
+              </Route>
+              <Route path="/pedido-exitoso" element={<PagoExitoso />} />
+              <Route path="/formulario-pago" element={<FormularioDePago />} />
+              <Route element={<BarraDeNavegacion />}>
+                <Route path="/busqueda" element={<Busqueda/>}></Route>
+                <Route path="/all" element={<CardsPizzas />} />
+    
+              </Route>
+            </Routes>
+          </CarritoProvider>
+        </PizzaProvider>
+      </BrowserRouter>
+    </AuthProvider>
   );
 };
 
 export default AppRoutes;
-
-
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import Home from '../components/Home/Home';
-// import DetalleDePizza from "../components/DetalleDePizza/DetalleDePizza";
-
-// const AppRoutes = () => {
-
-//   return (
-//     <Router>
-//     <Switch>
-//       <Route exact path="/" component={Home} />
-//       <Route path="/pizza/:id" component={DetalleDePizza} />
-//     </Switch>
-//   </Router>
-//   );
-//   }
-
-// export default AppRoutes;

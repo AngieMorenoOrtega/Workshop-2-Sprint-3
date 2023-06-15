@@ -4,7 +4,7 @@ const CarritoContext = createContext();
 
 const CarritoProvider = ({ children }) => {
   const [cantidadPizzas, setCantidadPizzas] = useState(0);
-  const precio={ precio:22}
+ 
 
   useEffect(() => {
     // Rescatar la cantidad de pizzas del estado local (localStorage) al cargar el contexto

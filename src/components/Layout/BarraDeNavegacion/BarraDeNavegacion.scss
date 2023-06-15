@@ -1,0 +1,44 @@
+@import "../../../globalStyle/globalStyle.scss";
+.div{
+  padding: 10px;
+    background-color:$fondo ;
+    &_usuario{
+         display: flex;
+flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    }
+    p{
+        color:rgb(43, 43, 43);
+    }
+    img{
+        height: 10px;
+        width: 10px;
+        border-radius: 10px;
+    }
+}
+.cupon {
+    overflow-x: scroll;
+    white-space: nowrap;
+    &_cupones{
+        background-image: linear-gradient(to top, #ffffff,$background-color);
+        color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    border-left: 4px dashed $fondo;
+    border-right: 4px dashed $fondo;
+  
+  } 
+  .cupon::before {
+    position: absolute;
+    content: "";
+    left: 240px;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    border-left: 1px dashed #fff;
+  }
+  
+    } 

@@ -1,17 +1,42 @@
-import React from 'react';
+import React,{useContext, useEffect} from 'react';
 import { useForm } from 'react-hook-form';
 // import { NavLink } from "react-router-dom";
 import logo from "./../../Assets/logo.png";
 // import Imagen_fondo from "./../../Assets/Imagen_fondo.jpg";
 import './InicioSesion.scss';
+import { getUsers } from '../../Services/getusers';
+import { useNavigate } from 'react-router';
+import { AuthContext } from '../../Context/UserContext';
 
 
 const InicioSesion = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+  const users = [];
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const fetchedUsers = await getUsers();
+      users.push(...fetchedUsers);
+    };
+
+    fetchUsers();
+  }, []);
+
 
   const onSubmit = (data) => {
-    // Aquí puedes realizar la lógica de inicio de sesión
-    console.log(data);
+    const foundUser = users.find((user) => user.email === data.email && user.contraseña === data.password);
+  
+    if (foundUser) {
+      // Inicio de sesión exitoso
+    
+        login(foundUser);
+    console.log(foundUser);navigate("/all");  // Redirige a la página de dashboard
+    } else {
+      // Credenciales incorrectas
+      console.log("Credenciales incorrectas");
+    }
   };
 
   return (
@@ -74,43 +99,6 @@ const InicioSesion = () => {
     </div>
   );
 };
-
-// const Restablecer = () => {
-//   const { register, handleSubmit, formState: { errors } } = useForm();
-
-//   const onSubmit = (data) => {
-//     // Aquí puedes realizar la lógica de creación de usuario
-//     console.log(data);
-//   };
-
-//   return (
-//     <div>
-//       <h2>Crear nuevo usuario</h2>
-//       <form onSubmit={handleSubmit(onSubmit)}>
-//         <div>
-//           <label>Email</label>
-//           <input {...register('email', { required: 'Email es requerido' })} />
-//           {errors.email && <span>{errors.email.message}</span>}
-//         </div>
-//         <div>
-//           <label>Contraseña</label>
-//           <input {...register('password', { required: 'Contraseña es requerida' })} />
-//           {errors.password && <span>{errors.password.message}</span>}
-//         </div>
-//         <button type="submit">Crear usuario</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// const Inicio = () => {
-//   return (
-//     <div>
-//       {/* <InicioSesion /> */}
-//       <Signup />
-//     </div>
-//   );
-// };
 
 export default InicioSesion;
 
